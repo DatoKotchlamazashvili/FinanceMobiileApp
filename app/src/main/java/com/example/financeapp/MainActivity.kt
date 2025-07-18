@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.financeapp.presentation.screen.on_boarding.OnBoardingScreen
 import com.example.financeapp.ui.theme.FinanceAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,9 +22,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             FinanceAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                    OnBoardingScreen(
+                        onLoginNowClicked = { },
+                        onCreateAccountClicked = { },
+                        modifier = Modifier.padding(20.dp)
                     )
                 }
             }
