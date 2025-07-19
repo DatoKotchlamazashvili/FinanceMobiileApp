@@ -34,7 +34,7 @@ fun getCallDialData(): List<CallDialType> =
 
 @Composable
 fun FaCallDial(
-    data: List<CallDialType>,
+    data: List<CallDialType> = getCallDialData(),
     onNumberClicked: (Int) -> Unit,
     onIconClicked: (CallIconType) -> Unit,
     modifier: Modifier = Modifier,
@@ -111,7 +111,6 @@ fun FaCallDialBoxEmpty(
             .height(LocalDimensions.current.dimensions56)
             .background(color = MaterialTheme.colorScheme.onPrimary)
     ) {
-        // Empty content
     }
 }
 

@@ -13,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.financeapp.presentation.screen.on_boarding.OnBoardingScreen
+import com.example.financeapp.presentation.screen.sign_up.SignUpScreenContent
+import com.example.financeapp.presentation.screen.sign_up.SignUpScreenUiState
 import com.example.financeapp.ui.theme.FinanceAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,10 +24,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             FinanceAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    OnBoardingScreen(
-                        onLoginNowClicked = { },
-                        onCreateAccountClicked = { },
-                        modifier = Modifier.padding(20.dp)
+                    SignUpScreenContent(
+                        uiState = SignUpScreenUiState(),
+                        onEvent = { },
+                        modifier = Modifier.fillMaxSize().padding(innerPadding).padding(20.dp)
                     )
                 }
             }

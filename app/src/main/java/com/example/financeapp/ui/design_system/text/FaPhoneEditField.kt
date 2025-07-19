@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
@@ -37,13 +38,12 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.financeapp.ui.theme.LocalDimensions
-import com.example.financeapp.ui.theme.LocalShapes
 
 
 data class Country(val code: String, val flagRes: ImageVector)
 
 @Composable
-fun PhoneInput(
+fun FaPhoneEditField(
     countries: List<Country>,
     selected: Country,
     onSelectCountry: (Country) -> Unit,
@@ -57,7 +57,7 @@ fun PhoneInput(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .height(LocalDimensions.current.dimensions56)
-            .border(BorderStroke(1.dp, Color.LightGray), LocalShapes.current.button)
+            .border(BorderStroke(1.dp, Color.LightGray), RoundedCornerShape(4.dp))
             .padding(horizontal = LocalDimensions.current.dimensions8)
     ) {
         Row(
@@ -146,7 +146,7 @@ fun PhoneInputPreview() {
     var selected by remember { mutableStateOf(countryList[0]) }
     var phone by remember { mutableStateOf("") }
 
-    PhoneInput(
+    FaPhoneEditField(
         countries = countryList,
         selected = selected,
         onSelectCountry = { selected = it },

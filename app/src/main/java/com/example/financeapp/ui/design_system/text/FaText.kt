@@ -4,6 +4,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -19,6 +20,7 @@ fun FaText(
     textAlign: TextAlign = TextAlign.Left,
     maxLine: Int = Integer.MAX_VALUE,
     fontWeight: FontWeight? = null,
+    textColor: Color? = null,
     modifier: Modifier = Modifier,
 ) {
     Text(
@@ -28,7 +30,7 @@ fun FaText(
         textAlign = textAlign,
         fontWeight = fontWeight,
         style = textType.getStyle(),
-        color = textType.getColor()
+        color = textColor ?: run { textType.getColor() }
     )
 }
 
@@ -38,6 +40,7 @@ fun FaText(
     textType: TextType,
     textAlign: TextAlign = TextAlign.Left,
     modifier: Modifier = Modifier,
+    textColor: Color? = null,
     fontWeight: FontWeight? = null,
 ) {
     Text(
@@ -45,6 +48,7 @@ fun FaText(
         text = text,
         textAlign = textAlign,
         fontWeight = fontWeight,
+        color = textColor ?: Color.Unspecified,
         style = textType.getStyle()
     )
 }

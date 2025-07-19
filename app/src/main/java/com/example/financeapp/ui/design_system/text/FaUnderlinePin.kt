@@ -33,7 +33,7 @@ import com.example.financeapp.ui.design_system.preview.PreviewSurface
 import com.example.financeapp.ui.theme.LocalDimensions
 
 @Composable
-fun PinInputField(
+fun FaUnderLinePin(
     pin: String,
     onPinChange: (String) -> Unit,
     length: Int = 4,
@@ -106,7 +106,7 @@ fun DemoPinScreen() {
     PreviewSurface {
         var pin by remember { mutableStateOf("1") }
 
-        PinInputField(
+        FaUnderLinePin(
             pin = pin,
             onPinChange = { pin = it },
             length = 4,
