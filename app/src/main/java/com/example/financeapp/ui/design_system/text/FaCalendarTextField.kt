@@ -42,11 +42,9 @@ import java.time.format.DateTimeFormatter
 @Composable
 fun FaCalendarTextField(
     onDateSelected: (Long) -> Unit,
-    label: String,
+    selectedDateMillis: Long
 ) {
-    var selectedDateMillis by rememberSaveable {
-        mutableLongStateOf(LocalDate.now().toEpochDay() * 24 * 60 * 60 * 1000)
-    }
+
     var showDatePicker by remember { mutableStateOf(false) }
     val formatter = DateTimeFormatter.ofPattern("dd MMM yyyy")
     val selectedDate = remember(selectedDateMillis) {
@@ -102,7 +100,6 @@ fun FaCalendarTextField(
                     onClick = {
                         showDatePicker = false
                         datePickerState.selectedDateMillis?.let {
-                            selectedDateMillis = it
                             onDateSelected(it)
                         }
                     }
@@ -133,7 +130,7 @@ fun CalendarTextFieldPreview() {
     PreviewSurface {
         FaCalendarTextField(
             onDateSelected = {},
-            label = "Select Date"
+            selectedDateMillis = 123214343453L,
         )
     }
 }

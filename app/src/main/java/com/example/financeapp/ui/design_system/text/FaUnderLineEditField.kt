@@ -50,7 +50,6 @@ fun FaUnderlineTextField(
             { FaText(text = placeholder, textType = TextType.LABEL_LARGE) }
         } else null,
 
-        // if it's a secret field, use the password visual transformation (or none, if visible)
         visualTransformation = if (isSecret && !passwordVisible) {
             PasswordVisualTransformation()
         } else {
